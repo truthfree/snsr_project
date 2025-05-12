@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>랜덤 말씀</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      
+      // background: #f5f6fa;
+      
+      background: url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .verse {
+      font-size: 1.3rem;
+      color: #222;
+      margin-bottom: 16px;
+    }
+    .source {
+      font-size: 1rem;
+      color: #888;
+    }
+    .refresh-btn {
+      margin-top: 24px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #4e73df;
+      color: #fff;
+      cursor: pointer;
+    }
+    .refresh-btn:active {
+      background: #375ab7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="verse" id="verse"></div>
+    <div class="source" id="source"></div>
+    <button class="refresh-btn" onclick="showRandomVerse()">다른 말씀 보기</button>
+  </div>
+  <script>
+    // 원하는 말씀/명언을 아래 배열에 추가하세요
+    const verses = [
+      { text: "내가 너희를 사랑한 것 같이 너희도 서로 사랑하라", source: "요한복음 13:34" },
+      { text: "두려워하지 말라 내가 너와 함께 함이라", source: "이사야 41:10" },
+      { text: "항상 기뻐하라 쉬지 말고 기도하라 범사에 감사하라", source: "데살로니가전서 5:16-18" },
+      { text: "네 시작은 미약하였으나 네 나중은 심히 창대하리라", source: "욥기 8:7" },
+      { text: "포기하지 마라, 위대한 일은 시간이 걸린다", source: "명언" },
+      // ... 더 추가 가능
+    ];
+
+    function showRandomVerse() {
+      const random = verses[Math.floor(Math.random() * verses.length)];
+      document.getElementById('verse').textContent = random.text;
+      document.getElementById('source').textContent = random.source;
+    }
+
+    // 페이지 로드 시 자동으로 랜덤 말씀 표시
+    window.onload = showRandomVerse;
+  </script>
+</body>
+</html>
