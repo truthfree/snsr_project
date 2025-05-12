@@ -15,6 +15,8 @@
       
       background: url('background.jpeg') no-repeat center center fixed;
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       font-family: 'Noto Sans KR', sans-serif;
       margin: 0;
     }
@@ -24,7 +26,12 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       padding: 32px 24px;
       max-width: 90vw;
+      min-width: 320px;
+      width: 100%;
+      max-width: 400px; /* 스케치북 최대 너비 */
       text-align: center;
+      box-sizing: border-box;
+      opacity: 0.97; /* 배경이 살짝 비치게 하고 싶으면 */
     }
     .verse {
       font-size: 1.3rem;
